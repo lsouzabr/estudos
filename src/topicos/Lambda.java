@@ -1,4 +1,4 @@
-package modulos;
+package topicos;
 
 public class Lambda {
 
