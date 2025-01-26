@@ -2,8 +2,7 @@ package topicos;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-
-
+import java.net.URL;
 
 public class LeituraArquivo {
 
@@ -19,12 +18,12 @@ public class LeituraArquivo {
     }
 
     public static void main(String[] args) {
-        if (args.length > 0) {
-            String caminhoArquivo = args[0];
-            LeituraArquivo leitura = new LeituraArquivo();
-            leitura.lerArquivo(caminhoArquivo);
-        } else {
-            System.out.println("Por favor, forneça o caminho do arquivo como argumento.");
-        }
+        LeituraArquivo leitura = new LeituraArquivo();
+        // Obtém o caminho da classe atual
+        URL url = LeituraArquivo.class.getProtectionDomain().getCodeSource().getLocation();
+        String caminhoClasse = url.getPath();
+        System.out.println("Caminho da classe atual: " + caminhoClasse);
+
+        leitura.lerArquivo("c://file.txt"); // Caminho relativo ao diretório de execução
     }
 }
